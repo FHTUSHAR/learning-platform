@@ -1,14 +1,17 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css'
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
+import { useState } from 'react';
 
 
 const Login = () => {
-    const { createGoogleUser, createGithubUser, user } = useContext(AuthContext)
+    const { createGoogleUser, createGithubUser, user, signInUser } = useContext(AuthContext)
+    const [error, setError] = useState('')
+    const navigate = useNavigate();
     const handleSubmit = (event) => {
 
         event.preventDefault()
@@ -16,17 +19,27 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+
+        signInUser(email, password)
+            .then(result => {
+                const user = result.user;
+                form.reset();
+                navigate('/');
+                setError('')
+
+            })
+            .catch(error => {
+                setError(error.message)
+            })
     };
     const handleGoogle = () => {
         createGoogleUser()
             .then(result => {
                 const users = result.user;
-
-
-
+                console.log(users)
             })
             .catch(error => {
-                console.error(error)
+                setError(error.message)
             })
     }
     const handleGithub = () => {
@@ -36,7 +49,7 @@ const Login = () => {
                 console.log(user)
             })
             .catch(error => {
-                console.error(error)
+                setError(error.message)
             })
     }
 

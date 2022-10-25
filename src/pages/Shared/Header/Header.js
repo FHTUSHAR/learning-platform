@@ -59,10 +59,25 @@ const Header = () => {
                     </Nav>
                     <Nav>
 
-                        <Nav.Link>{user?.displayName}</Nav.Link>
+                        <Nav.Link>
+                            {
+                                user?.uid ?
+                                    <>
+                                        <div className='d-flex' >
+                                            <img src={user?.photoURL} alt="" className='rounded-circle' data-toggle="tooltip" data-placement="bottom" title={user?.displayName} style={{ width: 40, height: 40 }} />
+                                            <Nav.Link ><Button className='py-0' onClick={handleLogOut}>LogOut</Button></Nav.Link>
+                                        </div>
+                                    </>
+                                    :
+                                    <>
+                                        <Nav.Link ><Link className='text-decoration-none fw-bold' to={'/login'}>Login</Link></Nav.Link>
+                                    </>
+                            }
 
-                        <Nav.Link ><Link className='text-decoration-none' to={'/login'}>Login</Link></Nav.Link>
-                        <Nav.Link ><Button className='py-0' onClick={handleLogOut}>LogOut</Button></Nav.Link>
+                        </Nav.Link>
+
+
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>
