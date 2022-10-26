@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const CategoryRight = ({ cate }) => {
     const { title, image_url, details, rating, id } = cate;
     return (
-        <Link to={`/category/${id}`} className='text-decoration-none mt-2'>
+        <Link to={`/course/${id}`} className='text-decoration-none mt-2'>
             <Container>
                 <CardGroup>
                     <Card className='d-flex w-50'>
