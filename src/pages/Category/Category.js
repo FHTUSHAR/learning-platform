@@ -1,12 +1,26 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useLoaderData } from 'react-router-dom';
+import CategoryLeft from '../CategoryLeft/CategoryLeft';
+import CategoryRight from '../CategoryRight/CategoryRight';
 
 const Category = () => {
+    const category = useLoaderData();
+
     return (
         <Container>
             <Row>
-                <Col className='bg-primary' lg={4}>1 of 2</Col>
-                <Col lg={8}>2 of 2</Col>
+                <Col lg={4}>
+                    {
+                        category.map(cate => <CategoryLeft key={cate.id} cate={cate}></CategoryLeft>)
+                    }
+                </Col>
+                <Col lg={8}>
+
+                    {
+                        category.map(cate => <CategoryRight key={cate.id} cate={cate}></CategoryRight>)
+                    }
+                </Col>
             </Row>
         </Container>
     );
