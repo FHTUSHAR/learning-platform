@@ -16,7 +16,7 @@ const CategoryRight = ({ cate }) => {
                                 {details.course_details}
                             </Card.Text>
                             <Card.Footer>
-                                <Card.Text>Ratings :{rating}<FaStar /> </Card.Text>
+                                <Card.Text className='mt-1'>Ratings :{rating}<FaStar /> </Card.Text>
                                 <Card.Text></Card.Text>
                             </Card.Footer>
                         </Card.Body>
