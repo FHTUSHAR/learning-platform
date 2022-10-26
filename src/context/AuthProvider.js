@@ -9,7 +9,8 @@ import app from '../firebase/firebase.config'
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const auth = getAuth(app);
 
@@ -17,28 +18,34 @@ const AuthProvider = ({ children }) => {
     const providerGithub = new GithubAuthProvider();
 
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const signInUser = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const createGoogleUser = () => {
+        setLoading(true);
         return signInWithPopup(auth, provider)
     }
     const createGithubUser = () => {
+        setLoading(true);
         return signInWithPopup(auth, providerGithub)
     }
     const userProfile = (profile) => {
+        setLoading(true);
         return updateProfile(auth.currentUser, profile)
     }
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     }
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
-            // setLoading(false)
+            setLoading(false)
 
         });
         return () => {

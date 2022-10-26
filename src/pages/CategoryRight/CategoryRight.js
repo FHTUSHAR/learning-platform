@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const CategoryRight = ({ cate }) => {
     const { title, image_url, details, rating, id } = cate;
     return (
-        <Link to={`/category/${id}`} className='text-decoration-none'>
+        <Link to={`/category/${id}`} className='text-decoration-none mt-2'>
             <Container>
                 <CardGroup>
                     <Card className='d-flex w-50'>
@@ -14,13 +14,12 @@ const CategoryRight = ({ cate }) => {
                             <Col xs={12} lg={6}>  <Card.Img variant="top" src={image_url} /></Col>
                             <Col xs={12} lg={6}> <Card.Body>
                                 <Card.Title>{title}</Card.Title>
-                                <Card.Text>
-                                    {details.course_details}
-                                </Card.Text>
-                                <Card.Footer className='d-flex'>
-                                    <Card.Text className='mt-1'>Ratings :{rating}<FaStar /> </Card.Text>
-                                    <Card.Text className='mt-1 ms-2'> Duration :{details.course_duration}</Card.Text>
-                                </Card.Footer>
+
+
+                                <Card.Text className='mt-1'>Ratings :{rating}<FaStar /> </Card.Text>
+                                <Card.Text className='mt-1 '> Duration :{details.course_duration}</Card.Text>
+                                <Card.Text className='mt-1 '> Enroll :{details.total_student} students</Card.Text>
+
                             </Card.Body>
                             </Col>
                         </Row>
