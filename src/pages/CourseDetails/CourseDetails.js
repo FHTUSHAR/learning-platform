@@ -1,13 +1,26 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Button, Card } from 'react-bootstrap';
+import { Link, useLoaderData } from 'react-router-dom';
+import CheckOut from '../CheckOut/CheckOut';
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
     console.log(courseDetails.title)
+
     return (
-        <div>
-            <h1>{courseDetails.title} </h1>
-        </div>
+        <Card style={{ width: '28rem' }} className="m-auto">
+            <Card.Header>
+                <Card.Title>{courseDetails.title}</Card.Title>
+            </Card.Header>
+            <Card.Img variant="top" src={courseDetails.image_url} />
+            <Card.Body>
+
+                <Card.Text>
+                    {courseDetails.details.course_details}
+                </Card.Text>
+                <Link to={`/checkout/${courseDetails.id}`}>  <Button variant="info">Get Premium Access</Button></Link>
+            </Card.Body>
+        </Card>
     );
 };
 
