@@ -2,13 +2,14 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import CheckOut from '../CheckOut/CheckOut';
+import './CourseDetails.css'
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
     console.log(courseDetails.title)
 
     return (
-        <Card style={{ width: '28rem' }} className="m-auto">
+        <Card style={{ width: '28rem' }} className="course_details">
             <Card.Header>
                 <Card.Title>{courseDetails.title}</Card.Title>
             </Card.Header>

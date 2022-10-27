@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { useContext } from 'react';
@@ -9,9 +9,12 @@ import { useState } from 'react';
 
 
 const Login = () => {
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const { createGoogleUser, createGithubUser, user, signInUser } = useContext(AuthContext)
     const [error, setError] = useState('')
-    const navigate = useNavigate();
+
     const handleSubmit = (event) => {
 
         event.preventDefault()
@@ -26,6 +29,7 @@ const Login = () => {
                 form.reset();
                 navigate('/');
                 setError('')
+                navigate(from, { replace: true });
 
             })
             .catch(error => {
@@ -78,6 +82,7 @@ const Login = () => {
                 <Button onClick={handleGoogle} variant="light"> <FaGoogle /><span className='ms-2'>Google</span></Button>
                 <Button onClick={handleGithub} variant="light" className='ms-2'> <FaGithub /><span className='ms-2'>Github</span></Button>
             </div>
+            <p>{error}</p>
         </div>
 
     );
