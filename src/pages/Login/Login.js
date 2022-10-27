@@ -40,7 +40,7 @@ const Login = () => {
         createGoogleUser()
             .then(result => {
                 const users = result.user;
-                navigate('/');
+                navigate(from, { replace: true });
                 console.log(users)
             })
             .catch(error => {
@@ -51,7 +51,7 @@ const Login = () => {
         createGithubUser()
             .then(result => {
                 const user = result.user;
-                navigate('/');
+                navigate(from, { replace: true });
                 console.log(user)
             })
             .catch(error => {
