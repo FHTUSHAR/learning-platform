@@ -4,6 +4,7 @@ import Blog from "../pages/Blog/Blog";
 import Category from "../pages/Category/Category";
 import CheckOut from "../pages/CheckOut/CheckOut";
 import CourseDetails from "../pages/CourseDetails/CourseDetails";
+import FAQ from "../pages/FAQ/FAQ";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -34,26 +35,30 @@ export const router = createBrowserRouter([
                 path: '/category',
                 element: <Category></Category>,
                 loader: (() => {
-                    return fetch('http://localhost:5000/course')
+                    return fetch('https://smart-edu-platform-server.vercel.app/course')
                 })
             },
             {
                 path: '/course/:id',
                 element: <CourseDetails></CourseDetails>,
                 loader: ({ params }) => {
-                    return fetch(`http://localhost:5000/course/${params.id}`)
+                    return fetch(`https://smart-edu-platform-server.vercel.app/course/${params.id}`)
                 }
             },
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
                 loader: ({ params }) => {
-                    return fetch(`http://localhost:5000/course/${params.id}`)
+                    return fetch(`https://smart-edu-platform-server.vercel.app/course/${params.id}`)
                 }
             },
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/faq',
+                element: <FAQ></FAQ>
             }
         ]
     },

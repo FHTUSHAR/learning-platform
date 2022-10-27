@@ -84,7 +84,7 @@ const Login = () => {
                 <Button onClick={handleGoogle} variant="light"> <FaGoogle /><span className='ms-2'>Google</span></Button>
                 <Button onClick={handleGithub} variant="light" className='ms-2'> <FaGithub /><span className='ms-2'>Github</span></Button>
             </div>
-            <p>{error}</p>
+            <p className='text-danger'>{error}</p>
         </div>
 
     );
