@@ -7,11 +7,11 @@ import './CategoryRight.css'
 const CategoryRight = ({ cate }) => {
     const { title, image_url, details, rating, id, price } = cate;
     return (
-        <div className='mb-4'>
-            <Link to={`/course/${id}`} className='text-decoration-none course_details_right'>
+        <div className='mb-4 shadow'>
+            <Link to={`/course/${id}`} className='text-decoration-none course_details_right '>
                 <Container>
                     <CardGroup>
-                        <Card className='d-flex w-50'>
+                        <Card className='d-flex w-50 border-0'>
                             <Row>
                                 <Col xs={12} lg={6}>  <Card.Img variant="top" src={image_url} /></Col>
                                 <Col xs={12} lg={6}> <Card.Body>

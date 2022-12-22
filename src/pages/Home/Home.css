@@ -1,6 +1,10 @@
 .home {
-    background-image: url('../../images/bg1.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 700px;
+    background-color: #2f9ef3;
+}
+
+@media only screen and (max-width:480px) {
+    .home_header {
+        display: flex;
+        flex-direction: row-reverse;
+    }
 }

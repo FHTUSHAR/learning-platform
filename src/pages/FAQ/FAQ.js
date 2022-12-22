@@ -4,6 +4,7 @@ import { Accordion } from 'react-bootstrap';
 const FAQ = () => {
     return (
         <div className='container' style={{ height: '500px' }}>
+            <h3 className='my-3'>Ask your questions here </h3>
             <Accordion defaultActiveKey="0">
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>Is there any option to submit the assignment letter ?</Accordion.Header>

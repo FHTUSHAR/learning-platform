@@ -9,6 +9,8 @@ const Category = () => {
 
     return (
         <Container>
+            <h2 className=' fw-bold mb-3 mt-2'>Popular Courses</h2>
+            <hr></hr>
             <Row>
                 <Col lg={4}>
                     {

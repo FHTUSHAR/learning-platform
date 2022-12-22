@@ -24,7 +24,7 @@ const Header = () => {
             })
     }
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar className='nav_header' expand="lg">
             <Container>
                 <Navbar.Brand href="#home"><img
                     alt=""
@@ -33,14 +33,14 @@ const Header = () => {
                     height="35"
                     className="d-inline-block align-top"
                 />{' '}
-                    <span className='logoText'>Smart_Edu_Platform</span></Navbar.Brand>
+                    <span className='logoText fs-3 fw-bold'>Smart_Edu_Platform</span></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link ><Link className='text-decoration-none' to={'/home'}>Home</Link></Nav.Link>
-                        <Nav.Link ><Link to={'/category'} className='text-decoration-none'>Courses</Link></Nav.Link>
-                        <Nav.Link ><Link to={'/faq'} className='text-decoration-none'>FAQ</Link></Nav.Link>
-                        <Nav.Link><Link to={'/blog'} className='text-decoration-none'> Blog</Link></Nav.Link>
+                    <Nav className="me-auto text-white">
+                        <Nav.Link ><Link className='text-decoration-none text-white' to={'/home'}>Home</Link></Nav.Link>
+                        <Nav.Link ><Link to={'/category'} className='text-decoration-none text-white'>Courses</Link></Nav.Link>
+                        <Nav.Link ><Link to={'/faq'} className='text-decoration-none text-white'>FAQ</Link></Nav.Link>
+                        <Nav.Link><Link to={'/blog'} className='text-decoration-none text-white'> Blog</Link></Nav.Link>
                         <Nav.Link>
                             {
                                 !theme ?
@@ -65,12 +65,12 @@ const Header = () => {
                                     <>
                                         <div className='d-flex' >
                                             <img src={user?.photoURL} alt="" className='rounded-circle' data-toggle="tooltip" data-placement="bottom" title={user?.displayName} style={{ width: 40, height: 40 }} />
-                                            <Nav.Link ><Button className='py-0' onClick={handleLogOut}>LogOut</Button></Nav.Link>
+                                            <Nav.Link ><Button className='py-0 text-white' onClick={handleLogOut}>LogOut</Button></Nav.Link>
                                         </div>
                                     </>
                                     :
                                     <>
-                                        <Nav.Link ><Link className='text-decoration-none fw-bold' to={'/login'}>Login</Link></Nav.Link>
+                                        <Nav.Link ><Link className='text-decoration-none fw-bold text-white border px-2' to={'/login'}>Login</Link></Nav.Link>
                                     </>
                             }
 
